@@ -16,7 +16,7 @@ public class TrainingRecord {
     
     // add a record to the list
    public void addEntry(Entry e){
-       tr.add(e);    
+        tr.add(e);
    } // addClass
    
    // look up the entry of a given day and month
@@ -30,7 +30,46 @@ public class TrainingRecord {
             }
        return result;
    } // lookupEntry
-   
+
+    /**
+     * Task 2
+     * Returns all entries of a given day, month and year
+     * @param d day
+     * @param m month
+     * @param y year
+     * @return list of all matching entries Or "No entries found"
+     */
+    public String FindAllEntries(int d, int m, int y) {
+        ListIterator<Entry> iteratr = tr.listIterator();
+        ArrayList<Entry> entries = new ArrayList<>();
+        while (iteratr.hasNext()) {
+            Entry current = iteratr.next();
+            if (current.getDay() == d && current.getMonth() == m && current.getYear() == y) {
+                entries.add(current);
+            }
+        }
+        if (entries.isEmpty()) {
+            return "No entries found";
+        } else {
+            return matchedEntriesToString(entries);
+        }
+    }
+
+        /**
+         * Task 2
+         * Returns all matching entries as a String
+         * @param entries ArrayList of entry objects of entries
+         * @return all matching entries as a String
+         */
+        public String matchedEntriesToString(ArrayList<Entry> entries) {
+            StringBuilder strings = new StringBuilder();
+            for (Entry entry : entries) {
+                strings.append(entry.getEntry());
+            }
+            return strings.toString();
+        }
+
+
    // Count the number of entries
    public int getNumberOfEntries(){
        return tr.size();
