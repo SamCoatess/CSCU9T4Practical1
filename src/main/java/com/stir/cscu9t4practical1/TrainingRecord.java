@@ -13,10 +13,11 @@ public class TrainingRecord {
     public TrainingRecord() {
         tr = new ArrayList<Entry>();
     } //constructor
-    
+
+
     // add a record to the list
    public void addEntry(Entry e){
-        tr.add(e);
+            tr.add(e);
    } // addClass
    
    // look up the entry of a given day and month
@@ -68,7 +69,6 @@ public class TrainingRecord {
             }
             return strings.toString();
         }
-
 
    // Count the number of entries
    public int getNumberOfEntries(){

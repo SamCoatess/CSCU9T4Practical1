@@ -31,6 +31,11 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
     //Task 1 - Adding New J button
     private JButton FindAllByDate = new JButton("Find all by date");
 
+    // Task 8 - Adding 3 new classes to GUI Swim, Sprint and cycle
+    private JButton Swim = new JButton("Swim");
+    private JButton Sprint = new JButton("Sprint");
+    private JButton Cycle = new JButton("Cycle");
+
     private TrainingRecord myAthletes = new TrainingRecord();
 
     private JTextArea outputArea = new JTextArea(5, 50);
@@ -71,6 +76,16 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
         addR.addActionListener(this);
         add(lookUpByDate);
         lookUpByDate.addActionListener(this);
+
+        //Task 8
+        Swim.addActionListener(this);
+        add(Swim);
+
+        Sprint.addActionListener(this);
+        add(Sprint);
+
+        Cycle.addActionListener(this);
+        add(Cycle);
 
         //Task 1
         FindAllByDate.addActionListener(this);
@@ -128,7 +143,6 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
         String message = myAthletes.FindAllEntries(d, m, y);
         return message;
     }
-
 
     public void blankDisplay() {
         name.setText("");
