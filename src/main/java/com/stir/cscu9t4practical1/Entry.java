@@ -14,7 +14,8 @@ public class Entry {
     dateAndTime = inst;
     distance = dist;
   } //constructor
-  
+
+  //getters and setters
   public String getName () {
     return name;
   } //getName

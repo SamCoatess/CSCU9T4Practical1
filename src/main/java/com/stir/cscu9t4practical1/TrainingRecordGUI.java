@@ -28,6 +28,9 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
     private JButton addR = new JButton("Add");
     private JButton lookUpByDate = new JButton("Look Up");
 
+    //Task 1 - Adding New J button
+    private JButton FindAllByDate = new JButton("Find all by date");
+
     private TrainingRecord myAthletes = new TrainingRecord();
 
     private JTextArea outputArea = new JTextArea(5, 50);
@@ -68,6 +71,11 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
         addR.addActionListener(this);
         add(lookUpByDate);
         lookUpByDate.addActionListener(this);
+
+        //Task 1
+        FindAllByDate.addActionListener(this);
+        add(FindAllByDate);
+
         add(outputArea);
         outputArea.setEditable(false);
         setSize(720, 200);
@@ -87,6 +95,9 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
         }
         if (event.getSource() == lookUpByDate) {
             message = lookupEntry();
+        }
+        if (event.getSource() == FindAllByDate) {
+            message = "Not Implemented yet";
         }
         outputArea.setText(message);
         blankDisplay();
