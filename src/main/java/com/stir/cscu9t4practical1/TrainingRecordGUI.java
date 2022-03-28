@@ -36,6 +36,9 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
     private JButton Sprint = new JButton("Sprint");
     private JButton Cycle = new JButton("Cycle");
 
+    //Task 11
+    private JButton remove = new JButton("Remove");
+
     private TrainingRecord myAthletes = new TrainingRecord();
 
     private JTextArea outputArea = new JTextArea(5, 50);
@@ -91,6 +94,10 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
         FindAllByDate.addActionListener(this);
         add(FindAllByDate);
 
+        //Task 11
+        remove.addActionListener(this);
+        add(remove);
+
         add(outputArea);
         outputArea.setEditable(false);
         setSize(720, 200);
@@ -114,9 +121,23 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
         if (event.getSource() == FindAllByDate) {
             message = "Not Implemented yet";
         }
+        if (event.getSource() == remove) {
+            message = removeEverything();
+        }
         outputArea.setText(message);
         blankDisplay();
     } // actionPerformed
+
+    // Task 12 - remove method
+    private String removeEverything() {
+        String n = name.getText();
+        int d = Integer.parseInt(day.getText());
+        int m = Integer.parseInt(month.getText());
+        int y = Integer.parseInt(year.getText());
+
+        myAthletes.removeEverything(n, d, m, y);
+        return "Entry has been removed";
+    }
 
     public String addEntry(String what) {
         String message = "Record added\n";

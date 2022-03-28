@@ -70,6 +70,33 @@ public class TrainingRecord {
             return strings.toString();
         }
 
+    /**
+     * Task 11 implementation of remove button
+     * @param name
+     * @param day
+     * @param month
+     * @param year
+     */
+    public void removeEverything(String name, int day, int month, int year) {
+        ListIterator<Entry> iter = tr.listIterator();
+        Entry search = null;
+
+        while (iter.hasNext()) {
+            Entry current = iter.next();
+            if ( current.getName().equals(name) &&
+                    current.getDay()== day &&
+                    current.getMonth()== month &&
+                    current.getYear()== year) {
+                search = current;
+            }
+        }
+
+        if (search != null) {
+            tr.remove(search);
+        }
+    }
+
+
    // Count the number of entries
    public int getNumberOfEntries(){
        return tr.size();
